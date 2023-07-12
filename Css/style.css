@@ -77,8 +77,6 @@
 .info_container {
   border-radius: 1rem;
   background-color: white;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
   position: absolute;
   top: -5rem;
   left: 0;
@@ -273,6 +271,13 @@ input::placeholder {
 
 .pick_input_checkbox {
   width: auto;
+}
+@media screen and (min-width: 450px) {
+  .info_container {
+    margin: 0;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
 }
 
 @media screen and (min-width: 991px) {
