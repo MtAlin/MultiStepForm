@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./Css/style.css" />
+    <title>Multi-Form</title>
+  </head>
+  <body>
+    <section>
+      <div class="multiForm">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 bg-image">
+              <img
+                src="./assets/images/bg-sidebar-mobile.svg"
+                class="mobile_bg"
+              />
+              <img
+                src="./assets/images/bg-sidebar-desktop.svg"
+                class="desktop_bg"
+              />
+              <div class="check_steps">
+                <div class="check_steps_flex">
+                  <div class="steps active"><span>1</span></div>
+                  <div class="step_text">
+                    <p>STEP1</p>
+                    <h6>YOUR INFO</h6>
+                  </div>
+                </div>
+                <div class="check_steps_flex">
+                  <div class="steps "><span>2</span></div>
+                  <div class="step_text">
+                    <p>STEP2</p>
+                    <h6>SELECT PLAN</h6>
+                  </div>
+                </div>
+                <div class="check_steps_flex">
+                  <div class="steps "><span>3</span></div>
+                  <div class="step_text">
+                    <p>STEP3</p>
+                    <h6>ADD-ONS</h6>
+                  </div>
+                </div>
+                <div class="check_steps_flex">
+                  <div class="steps"><span>4</span></div>
+                  <div class="step_text">
+                    <p>STEP4</p>
+                    <h6>ADD-ONS</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- first step YOUR INFO  -->
+            <div  class="col-lg-8 personal_info stepHide stepShow step " >
+              <div class="info_align_position">
+                <div class="info_container">
+                  <h1>Personal Info</h1>
+                  <h6>
+                    Please provide your name, email adress, and phone number.
+                  </h6>
+                  <form>
+                    <label>Name</label><br />
+                    <input
+                    id="inputNameValue"
+                      type="text"
+                      autocomplete="name"
+                      name="name"
+                      placeholder="e.g. Stephen King"
+                      onchange="getNameValue()"
+                    /><br />
+                    <p id="nameValidationError"></p>
+                    <label>Email Adress</label><br />
+                    <input
+                      id="inputEmailValue"
+                      name="email"
+                      type="email"
+                      placeholder="e.g. stephen.king@yahoo.com"
+                      onchange="getEmailValue()"
+                    /><br />
+                     <p id="emailValidationError"></p>
+                    <label>Phone Number</label><br />
+                    <input
+                     id="inputPhoneValue"
+                      name="phone"
+                      type="text"
+                      placeholder="e.g. +40 043 033 033"
+                      onchange="getPhoneValue()"
+                    /><br />
+                     <p id="phonelValidationError"></p>
+                  </form>
+                </div>
+              </div>
+              <div class="back_next">
+                <button class="btn btn-light" ></button>
+                <button id="myButton"  class="btn btn-primary" onclick="nextStep()">
+                  Next
+                </button>
+              </div>
+            </div>
+            <!-- second step  SELECT PLAN-->
+            <div class="col-lg-8 personal_info stepHide step">
+              <div class="info_align_position">
+                <div class="info_container">
+                  <h1>Select you plan</h1>
+                  <h6>You have the option of monthly or year billing.</h6>
+                  <div class="plan_cards">
+                    <div class="card arcade" onclick="selectArcadePlan()">
+                      <img
+                        class="icon_plan_select"
+                        src="./assets/images/icon-arcade.svg"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">Arcade</h5>
+                        <p class="card-text" id="arcade_plan_price">$9/mo</p>
+                        <p class="monthlyFree"></p>
+                      </div>
+                    </div>
+                    <div class="card advanced" onclick="selectAdvancedPlan()">
+                      <img
+                        class="icon_plan_select"
+                        src="./assets/images/icon-advanced.svg"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">Advanced</h5>
+                        <p class="card-text" id="advanced_plan_price">$12/mo</p>
+                        <p class="monthlyFree"></p>
+                      </div>
+                    </div>
+                    <div class="card pro" onclick="selectProPlan()">
+                      <img
+                        class="icon_plan_select"
+                        src="./assets/images/icon-pro.svg"
+                        alt="Card image cap"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">Pro</h5>
+                        <p class="card-text" id="pro_plan_price">$15/mo</p>
+                        <p class="monthlyFree"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="toggle_choose_plan">
+                    <h5 class="monthly_plan">Monthly</h5>
+                    <label class="switch" onchange="toggle()">
+                      <input type="checkbox" id="switchPlan" />
+                      <span class="slider round"></span>
+                    </label>
+                    <h5 class="yearly_plan">Yearly</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="back_next">
+                <button class="btn btn-light" onclick="backStep()">Back</button>
+                <button class="btn btn-primary" onclick="nextStep()">
+                  Next
+                </button>
+              </div>
+            </div>
+            <!-- third step  ADD-ONS-->
+            <div  class="col-lg-8 personal_info stepHide step">
+              <div class="info_align_position">
+                <div class="info_container">
+                  <h1>Pick add-ons</h1>
+                  <h6>Add-ons help enhance your gamimg experience.</h6>
+                  <div class="pick_cards_container">
+                    <div class="pick_cards">
+                      <div class="pick_card_checkbox">
+                        <input id="checkboxValueOnlineService" class="pick_input_checkbox " type="checkbox"onchange="onlineServicePlan(0)" />
+                        <div>
+                          <h4>Online Service</h4>
+                          <p>Access to multiplayer gamimg</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p class="pickAdons_plan_price"></p>
+                      </div>
+                    </div>
+                    <div class="pick_cards">
+                      <div class="pick_card_checkbox">
+                        <input  id="checkboxValueLargerStorage" class="pick_input_checkbox" type="checkbox" onchange="largerStoragePlan(1)" />
+                        <div>
+                          <h4>Larger Storage</h4>
+                          <p>Access to multiplayer gamimg</p>
+                        </div>
+                      </div>
+                      <div> 
+                        <p class="pickAdons_plan_price"></p>
+                      </div>
+                    </div>
+                    <div class="pick_cards">
+                      <div class="pick_card_checkbox">
+                        <input id="checkboxValueCustomProfile" class="pick_input_checkbox" type="checkbox" onchange="customProfilePlan(2)"/>
+                        <div>
+                          <h4>Customize Profile</h4>
+                          <p>Access to multiplayer gamimg</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p class="pickAdons_plan_price"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="back_next">
+                  <button class="btn btn-light" onclick="backStep()">Back</button>
+                  <button class="btn btn-primary" onclick="nextStep()">
+                    Next
+                  </button>
+                </div>
+              </div> 
+            <!-- fouth step  finishing up-->
+            <div  class="col-lg-8 personal_info stepHide step">
+              <div class="info_align_position">
+                <div class="info_container">
+                  <h1>Finishing up</h1>
+                  <h6>Double check if everyting looks OK before confirming.</h6>
+                  <div class="finishUp_container">
+                    <div class="finishUp_cards" >
+                      <div>
+                        <h4 id="resultPlan">Select a plan</h4>
+                        <a class="changeSubscriptionPlan" onclick="changeSubscriptionPlan()">Change</a>
+                      </div>
+                      <div>
+                        <p id="finishUp_plan_price">$<span >1</span>/mo</p>
+                      </div>
+                    </div>
+                    <div class="finishUp_line"></div>
+                    <div id="finishUp_cards_element" >
+                    </div>
+                  </div>
+                  <div class="finishUp_total">
+                    <p id="totalPaidPlan"></p>
+                    <p id="total_sum"></p>
+                  </div>
+                  </div>
+                </div>
+                 <div class="back_next">
+                    <button class="btn btn-light" onclick="backStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()">
+                      Next
+                    </button>
+                </div>
+              </div> 
+              <!-- fifth step  -->
+              <div class="col-lg-8 stepHide step">
+                <div class="thank_you">
+                   <img src="./assets/images/icon-thank-you.svg" alt="">
+                   <h1>Thank You</h1>
+                   <p>It's always a good idea to say thank you. Just as you would send a friend a thank-you note or email for lending a hand or doing you a favor,
+                     it's also a kind gesture to send a quick note to colleagues who help with something work-related.</p>
+                </div>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+    <script src="data.js"></script>
+  </body>
+</html>
