@@ -272,6 +272,13 @@ input::placeholder {
 .pick_input_checkbox {
   width: auto;
 }
+@media screen and (min-width: 450px) {
+  .info_container {
+    margin: 0;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
 
 @media screen and (min-width: 991px) {
   .multiForm {
